@@ -77,7 +77,7 @@ public class ArrayStringDemo {
 
         separate();
 
-        // search
+        // searching
         System.out.printf("Search for Alan:  %2d\n", search(array, "Alan"));
         System.out.printf("Search for Linus: %2d\n", search(array, "Linus"));
     }
