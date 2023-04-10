@@ -16,24 +16,32 @@ public class ArrayStringDemo {
     // prints the complete array
     public static void printWholeArray(String[] array) {
         System.out.print("[" + array[0]);
-        int n = array.length;
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i < MAXSIZE; i++) {
             System.out.print(", " + array[i]);
         }
-        System.out.println("] Length: " + n);
+        System.out.println("] Length: " + array.length);
     }
 
     // prints only the populated parts of the array
     public static void printPopulatedArray(String[] array) {
         int c = 1;
         if (array[0] != null) System.out.print(array[0]);
-        for (int i = 1, n = array.length; i < n; i++) {
+        for (int i = 1; i < MAXSIZE; i++) {
             if (array[i] != null) {
                 c++;
                 System.out.print(", " + array[i]);
             }
         }
-        System.out.println(" (Length: " + c + ")");
+        System.out.println(" (Population size: " + c + ")");
+    }
+
+    // clones and returns array
+    public static String[] clone(String[] array) {
+        String[] duplicate = new String[MAXSIZE];
+        for (int i = 0; i < MAXSIZE; i++) {
+            duplicate[i] = array[i];
+        }
+        return duplicate;
     }
 
     // adds to the end of an array
@@ -49,7 +57,7 @@ public class ArrayStringDemo {
 
     // returns index of data in array
     public static int search(String[] array, String data) {
-        for (int i = 0, n = array.length; i < n; i++) {
+        for (int i = 0; i < MAXSIZE; i++) {
             if (array[i].equalsIgnoreCase(data)) return i;
         }
         return -1;
@@ -79,6 +87,11 @@ public class ArrayStringDemo {
             // populating array by appending
             append(array, x);
         }
+
+        separate();
+
+        System.out.print("Cloned array: ");
+        printWholeArray(clone(array));
 
         separate();
 
