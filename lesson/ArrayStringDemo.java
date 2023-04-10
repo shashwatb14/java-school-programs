@@ -46,13 +46,13 @@ public class ArrayStringDemo {
 
     // adds to the end of an array
     public static void append(String[] array, String item) {
-        // throws exception if no space for adding
+        // throws error if full
         if (isFull()) System.out.println(" Error - array full");
         else {
             array[currentIndex] = item;
             currentIndex++;
+            printPopulatedArray(array);
         }
-        printPopulatedArray(array);
     }
 
     // returns index of data in array
@@ -67,8 +67,20 @@ public class ArrayStringDemo {
     public static void delete(String[] array, String item) {
         int index = search(array, item);
         if (index == -1) System.out.printf("Error - %s does not exist\n", item);
-        else array[index] = null;
-        printWholeArray(array);
+        else {
+            array[index] = null;
+            printWholeArray(array);
+        }
+    }
+
+    // replaces element in array
+    public static void replace(String[] array, String original, String replacement) {
+        int index = search(array, original);
+        if (index == -1) System.out.printf("Error - %s does not exist\n", original);
+        else {
+            array[index] = replacement;
+            printWholeArray(array);
+        }
     }
 
     // creates visual separation
@@ -115,6 +127,14 @@ public class ArrayStringDemo {
         delete(array, "John");
         System.out.print("Deleting 'Gosling': ");
         delete(array, "Gosling");
+
+        separate();
+
+        // replacing
+        System.out.println("Replacing 'Steve' with 'Wozniak': ");
+        replace(array, "Steve", "Wozniak");
+        System.out.println("Replacing 'John' with 'Cena': ");
+        replace(array, "John", "Cena");
 
         separate();
     }
