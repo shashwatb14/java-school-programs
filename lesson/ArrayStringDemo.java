@@ -83,6 +83,20 @@ public class ArrayStringDemo {
         }
     }
 
+    // swaps two given elements
+    public static void swap(String[] array, int index1, int index2) {
+        // validate indexes
+        if (index1 < 0 || index1 > MAXSIZE - 1 || index2 < 0 || index2 > MAXSIZE - 1) {
+            System.out.println("Error - invalid indexes");
+            return;
+        }
+
+        String temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+        printWholeArray(array);
+    }
+
     // creates visual separation
     public static void separate() {
         System.out.println("\n---------------------------------------------------------------------\n");
@@ -137,5 +151,11 @@ public class ArrayStringDemo {
         replace(array, "John", "Cena");
 
         separate();
+
+        // swapping
+        System.out.println("Swapping the first element with the last element : ");
+        swap(array, 0, MAXSIZE - 1);
+        System.out.println("Swapping array[0] with array[10]: ");
+        swap(array, 0, 10);
     }
 }
