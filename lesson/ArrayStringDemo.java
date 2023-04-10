@@ -58,9 +58,17 @@ public class ArrayStringDemo {
     // returns index of data in array
     public static int search(String[] array, String data) {
         for (int i = 0; i < MAXSIZE; i++) {
-            if (array[i].equalsIgnoreCase(data)) return i;
+            if (array[i] != null && array[i].equalsIgnoreCase(data)) return i;
         }
         return -1;
+    }
+
+    // deletes element from array
+    public static void delete(String[] array, String item) {
+        int index = search(array, item);
+        if (index == -1) System.out.printf("Error - %s does not exist\n", item);
+        else array[index] = null;
+        printWholeArray(array);
     }
 
     // creates visual separation
@@ -90,6 +98,7 @@ public class ArrayStringDemo {
 
         separate();
 
+        //cloning
         System.out.print("Cloned array: ");
         printWholeArray(clone(array));
 
@@ -98,6 +107,14 @@ public class ArrayStringDemo {
         // searching
         System.out.printf("Search for Alan:  %2d\n", search(array, "Alan"));
         System.out.printf("Search for Linus: %2d\n", search(array, "Linus"));
+
+        separate();
+
+        // deleting
+        System.out.print("Deleting 'John':    ");
+        delete(array, "John");
+        System.out.print("Deleting 'Gosling': ");
+        delete(array, "Gosling");
 
         separate();
     }
