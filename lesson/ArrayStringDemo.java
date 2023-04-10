@@ -16,19 +16,24 @@ public class ArrayStringDemo {
     // prints the complete array
     public static void printWholeArray(String[] array) {
         System.out.print("[" + array[0]);
-        for (int i = 1, n = array.length; i < n; i++) {
+        int n = array.length;
+        for (int i = 1; i < n; i++) {
             System.out.print(", " + array[i]);
         }
-        System.out.println("]");
+        System.out.println("] Length: " + n);
     }
 
     // prints only the populated parts of the array
     public static void printPopulatedArray(String[] array) {
+        int c = 1;
         if (array[0] != null) System.out.print(array[0]);
         for (int i = 1, n = array.length; i < n; i++) {
-            if (array[i] != null) System.out.print(", " + array[i]);
+            if (array[i] != null) {
+                c++;
+                System.out.print(", " + array[i]);
+            }
         }
-        System.out.println();
+        System.out.println(" (Length: " + c + ")");
     }
 
     // adds to the end of an array
@@ -80,5 +85,7 @@ public class ArrayStringDemo {
         // searching
         System.out.printf("Search for Alan:  %2d\n", search(array, "Alan"));
         System.out.printf("Search for Linus: %2d\n", search(array, "Linus"));
+
+        separate();
     }
 }
