@@ -97,6 +97,33 @@ public class ArrayStringDemo {
         printWholeArray(array);
     }
 
+    // inserts an element at any given position
+    // replaced element fills any available spaces
+    public static void insert(String[] array, String data, int index) {
+        if (index < 0 || index > MAXSIZE - 1) {
+            System.out.println("Error - invalid index");
+            return;
+        }
+
+        String temp = array[index];
+        array[index] = data;
+
+        int replaceIndex = searchForNull(array);
+        if (replaceIndex == -1) System.out.println("No available spaces");
+        else {
+            array[replaceIndex] = temp;
+            printWholeArray(array);
+        }
+    }
+
+    // returns null index in array
+    public static int searchForNull(String[] array) {
+        for (int i = 0; i < MAXSIZE; i++) {
+            if (array[i] == null) return i;
+        }
+        return -1;
+    }
+
     // creates visual separation
     public static void separate() {
         System.out.println("\n---------------------------------------------------------------------\n");
@@ -153,9 +180,24 @@ public class ArrayStringDemo {
         separate();
 
         // swapping
-        System.out.println("Swapping the first element with the last element : ");
+        System.out.println("Swapping the first element with the last element: ");
         swap(array, 0, MAXSIZE - 1);
         System.out.println("Swapping array[0] with array[10]: ");
         swap(array, 0, 10);
+
+        separate();
+
+        // inserting
+        System.out.println("Inserting 'John' at the first position: ");
+        insert(array, "John", 0);
+        System.out.println("Inserting 'Steve' at the third position: ");
+        insert(array, "Steve", 2);
+        System.out.println("Inserting 'John' at index 10: ");
+        insert(array, "John", MAXSIZE);
+
+        separate();
+
+        System.out.print("Final array: ");
+        printWholeArray(array);
     }
 }
