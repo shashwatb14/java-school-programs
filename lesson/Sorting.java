@@ -2,8 +2,8 @@ public class Sorting {
     public static void main(String[] args) {
         int[] array = {12, 7, 14,  9, 5, 3};
         printWholeArray(array);
-        selection(array);
-        bubble(array);
+        selection(clone(array));
+        bubble(clone(array));
     }
 
     public static void printWholeArray(int[] array) {
@@ -40,16 +40,30 @@ public class Sorting {
     // bubble sort
     public static void bubble(int[] a) {
         int n = a.length;
+        boolean swap = false;
+
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n - 1; j++) {
+            for (int j = 0; j < n - i - 1; j++) {
                 // swap if greater
                 if (a[j] > a[j + 1]) {
                     int temp = a[j];
                     a[j] = a[j + 1];
                     a[j + 1] = temp;
+                    swap = true;
                 }
             }
+            // no swaps = already sorted
+            if (!swap) break;
         }
         printWholeArray(a);
+    }
+
+    public static int[] clone(int[] array) {
+        int n = array.length;
+        int[] duplicate = new int[n];
+        for (int i = 0; i < n; i++) {
+            duplicate[i] = array[i];
+        }
+        return duplicate;
     }
 }
