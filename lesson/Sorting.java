@@ -40,11 +40,12 @@ public class Sorting {
     // bubble sort
     public static void bubble(int[] a) {
         int n = a.length;
-        boolean swap = false;
+        boolean swap = true;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n && swap; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 // swap if greater
+                swap = false;
                 if (a[j] > a[j + 1]) {
                     int temp = a[j];
                     a[j] = a[j + 1];
@@ -52,8 +53,6 @@ public class Sorting {
                     swap = true;
                 }
             }
-            // no swaps = already sorted
-            if (!swap) break;
         }
         printWholeArray(a);
     }
