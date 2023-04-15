@@ -16,6 +16,15 @@ public class doublyLinkedList {
         if (isEmpty()) head = newNode;
 
         else {
+
+            if (pos == 0) {
+                newNode.next = head;
+                head.prev = newNode;
+                head = newNode;
+                size++;
+                return;
+            }
+
             stringNode temp = head;
 
             // go to the node position
@@ -68,7 +77,6 @@ public class doublyLinkedList {
             test.printList();
             test.insert("LMAO", 3);
             test.printList();
-            // need to fix at pos 0
             test.insert("123", 0);
             test.printList();
 
