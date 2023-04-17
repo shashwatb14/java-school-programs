@@ -83,24 +83,4 @@ public class LinkedList {
             System.out.println("List is empty");
         }
     }
-
-    public static void main(String[] args) {
-        LinkedList test = new LinkedList();
-
-        try {
-            test.insert("test", 0);
-            test.printList();
-            test.insert("qwerty", 1);
-            test.printList();
-            test.insert("lol", 1);
-            test.printList();
-            test.insert("LMAO", 3);
-            test.printList();
-            test.insert("123", 0);
-            test.printList();
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 }
