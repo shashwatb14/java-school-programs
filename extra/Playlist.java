@@ -13,6 +13,10 @@ public class Playlist {
             playlist.printList();
             playlist.insert("123", 0);
             playlist.printList();
+            System.out.println("Removed " + playlist.remove(2) + " from list.");
+            playlist.printList();
+            playlist.append("ADDED");
+            playlist.printList();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

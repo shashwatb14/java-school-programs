@@ -8,11 +8,6 @@ public class stringNode {
     }
 
     public String toString() {
-        String prev = null, next = null;
-
-        if (this.prev != null) prev = this.prev.data;
-        if (this.next != null) next = this.next.data;
-
-        return "[" + prev + "|" + this.data + "|" + next + "]";
+        return "[" + this.prev.data + "|" + this.data + "|" + this.next.data + "]";
     }
 }
