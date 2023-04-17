@@ -1,11 +1,14 @@
-public class doublyLinkedList {
+// circular doubly linked list
+public class LinkedList {
     stringNode head;
     int size = 0;
 
+    // check if empty
     public boolean isEmpty() {
         return head == null;
     }
 
+    // insert node at any position
     public void insert(String d, int pos) throws Exception{
         stringNode newNode = new stringNode(d);
 
@@ -13,7 +16,10 @@ public class doublyLinkedList {
         if (pos > size || pos < 0) throw new Exception("Invalid position.");
 
         // make newNode head if list is empty
-        if (isEmpty()) head = newNode;
+        if (isEmpty()) {
+            head = newNode;
+            loop();
+        }
 
         else {
 
@@ -22,6 +28,7 @@ public class doublyLinkedList {
                 head.prev = newNode;
                 head = newNode;
                 size++;
+                loop();
                 return;
             }
 
@@ -38,17 +45,29 @@ public class doublyLinkedList {
             temp.next = newNode;
         }
         size++;
+
+        if (pos == size) loop();
     }
 
-    public String remove() throws Exception {
+    public String remove(int pos) throws Exception {
+        if (pos > size || pos < 0) throw new Exception("Invalid position.");
         if (!isEmpty()) {
-            String d = head.data;
             // todo
-            size--;
-            return d;
+            return "";
         } else {
-            throw new Exception("Queue is empty.");
+            throw new Exception("List is empty.");
         }
+    }
+
+    // creates circular linked list
+    private void loop() {
+        stringNode temp = head;
+        for (int i = 0; i < size - 1; i++) {
+            temp = temp.next;
+        }
+
+        head.prev = temp;
+        temp.next = head;
     }
 
     public void printList() {
@@ -66,7 +85,7 @@ public class doublyLinkedList {
     }
 
     public static void main(String[] args) {
-        doublyLinkedList test = new doublyLinkedList();
+        LinkedList test = new LinkedList();
 
         try {
             test.insert("test", 0);
