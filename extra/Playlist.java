@@ -1,25 +1,98 @@
-public class Playlist {
-    public static void main(String[] args) {
-        LinkedList playlist = new LinkedList();
-        System.out.println("No songs");
-        try {
-            playlist.insert("test", 0);
-            playlist.printList();
-            playlist.insert("qwerty", 1);
-            playlist.printList();
-            playlist.insert("lol", 1);
-            playlist.printList();
-            playlist.insert("LMAO", 3);
-            playlist.printList();
-            playlist.insert("123", 0);
-            playlist.printList();
-            System.out.println("Removed " + playlist.remove(2) + " from list.");
-            playlist.printList();
-            playlist.append("ADDED");
-            playlist.printList();
+import java.util.Scanner;
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+public class Playlist {
+
+    static LinkedList playlist = new LinkedList();
+    static stringNode current;
+
+    public static void main(String[] args) {
+        int num;
+        current = playlist.head;
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("\nCurrent playlist: ");
+            playlist.printSongs();
+            if (current != null) System.out.println("Now playing: " + current.data);
+            else System.out.println("No songs in the playlist.");
+            System.out.println("Choose an option: [1] next song");
+            System.out.println("                  [2] previous song");
+            System.out.println("                  [3] add song");
+            System.out.println("                  [4] insert song");
+            System.out.println("                  [5] remove song");
+            System.out.println("                  [6] delete playlist");
+            System.out.println("                  [7] quit");
+            System.out.print(">>> ");
+            num = scanner.nextInt();
+
+            if (num < 0 || num > 7) System.out.println("Invalid option.");
+
+            switch (num) {
+                case 1 -> {
+                    if (current != null) current = current.next;
+                }
+                case 2 -> {
+                    if (current != null) current = current.prev;
+                }
+                case 3 -> add();
+                case 4 -> insert();
+                case 5 -> remove();
+                case 6 -> reset();
+            }
+        } while (num != 7);
+    }
+
+    // add song to the end of the list
+    public static void add() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Add song: ");
+        String song = scanner.next();
+        playlist.append(song);
+    }
+
+    // insert anywhere in playlist
+    public static void insert() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Insert song: ");
+        String song = scanner.next();
+
+        Scanner intScanner;
+        do {
+            intScanner = new Scanner(System.in);
+            System.out.print("Position to insert song: ");
+        } while (!intScanner.hasNextInt());
+        int pos = intScanner.nextInt();
+
+        while (true) {
+            try {
+                playlist.insert(song, pos);
+                break;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
+    }
+
+    // remove a specific song based on index
+    public static void remove() {
+        Scanner scanner;
+        do {
+            scanner = new Scanner(System.in);
+            System.out.print("Remove song (position number): ");
+        } while (!scanner.hasNextInt());
+        int pos = scanner.nextInt();
+
+        while (true) {
+            try {
+                playlist.remove(pos);
+                break;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    // deletes entire playlist
+    public static void reset() {
+        playlist.reset();
     }
 }

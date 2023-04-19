@@ -9,7 +9,10 @@ public class LinkedList {
     }
 
     // returns node at specific position
-    public stringNode getNode(int pos) {
+    public stringNode getNode(int pos) throws Exception {
+        // validation
+        if (pos > size || pos < 0) throw new Exception("Invalid position.");
+
         stringNode temp = head;
         for (int i = 0; i < pos; i++) {
             temp = temp.next;
@@ -20,14 +23,17 @@ public class LinkedList {
     // appends to the end of list
     public void append(String d) {
         stringNode node = new stringNode(d);
-        if (isEmpty()) head = node;
+        if (isEmpty()) {
+            head = node;
+            loop();
+        }
         else {
             head.prev.next = node;
             node.prev = head.prev;
             head.prev = node;
             node.next = head;
-            size++;
         }
+        size++;
     }
 
     // insert node at any position
@@ -80,6 +86,12 @@ public class LinkedList {
         }
     }
 
+    // deletes entire list
+    public void reset() {
+        head = null;
+        size = 0;
+    }
+
     // creates circular linked list
     private void loop() {
         stringNode temp = head;
@@ -102,7 +114,21 @@ public class LinkedList {
             }
             System.out.println();
         } else {
-            System.out.println("List is empty");
+            System.out.println("List is empty.");
+        }
+    }
+
+    // custom print method for Playlist.java
+    public void printSongs() {
+        if (!isEmpty()) {
+            stringNode temp = head;
+            for (int i = 0; i < size; i++) {
+                System.out.println(i + ": " + temp.data);
+                temp = temp.next;
+            }
+            System.out.println();
+        } else {
+            System.out.println("List is empty.");
         }
     }
 }
