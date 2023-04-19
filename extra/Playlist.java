@@ -3,17 +3,18 @@ import java.util.Scanner;
 public class Playlist {
 
     static LinkedList playlist = new LinkedList();
-    static stringNode current;
 
     public static void main(String[] args) {
         int num;
-        current = playlist.head;
+        stringNode current = playlist.head;
         do {
             Scanner scanner = new Scanner(System.in);
             System.out.println("\nCurrent playlist: ");
             playlist.printSongs();
-            if (current != null) System.out.println("Now playing: " + current.data);
-            else System.out.println("No songs in the playlist.");
+
+            if (current != null) System.out.println("Now playing: " + current.data + "\n");
+            else System.out.println("No songs in the playlist.\n");
+
             System.out.println("Choose an option: [1] next song");
             System.out.println("                  [2] previous song");
             System.out.println("                  [3] add song");
@@ -33,8 +34,16 @@ public class Playlist {
                 case 2 -> {
                     if (current != null) current = current.prev;
                 }
-                case 3 -> add();
-                case 4 -> insert();
+                case 3 -> {
+                    boolean change = playlist.isEmpty();
+                    add();
+                    if (change) current = playlist.head;
+                }
+                case 4 -> {
+                    boolean change = playlist.isEmpty();
+                    insert();
+                    if (change) current = playlist.head;
+                }
                 case 5 -> remove();
                 case 6 -> reset();
             }
@@ -45,7 +54,7 @@ public class Playlist {
     public static void add() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Add song: ");
-        String song = scanner.next();
+        String song = scanner.nextLine();
         playlist.append(song);
     }
 
@@ -53,7 +62,7 @@ public class Playlist {
     public static void insert() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Insert song: ");
-        String song = scanner.next();
+        String song = scanner.nextLine();
 
         Scanner intScanner;
         do {
