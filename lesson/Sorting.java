@@ -1,6 +1,6 @@
 public class Sorting {
     public static void main(String[] args) {
-        int[] array = {12, 7, 14,  9, 5, 3};
+        int[] array = {12, 7, 14, 9, 5, 3};
         printWholeArray(array);
         selection(clone(array));
         bubble(clone(array));
@@ -43,9 +43,9 @@ public class Sorting {
         boolean swap = true;
 
         for (int i = 0; i < n && swap; i++) {
+            swap = false;
             for (int j = 0; j < n - i - 1; j++) {
                 // swap if greater
-                swap = false;
                 if (a[j] > a[j + 1]) {
                     int temp = a[j];
                     a[j] = a[j + 1];
