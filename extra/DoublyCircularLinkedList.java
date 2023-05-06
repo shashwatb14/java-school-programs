@@ -1,5 +1,5 @@
 // circular doubly linked list
-public class LinkedList {
+public class DoublyCircularLinkedList {
     stringNode head;
     int size = 0;
 

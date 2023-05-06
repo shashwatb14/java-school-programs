@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Playlist {
 
-    static LinkedList playlist = new LinkedList();
+    static DoublyCircularLinkedList playlist = new DoublyCircularLinkedList();
 
     public static void main(String[] args) {
         int num;
