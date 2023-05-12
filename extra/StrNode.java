@@ -1,9 +1,9 @@
-public class stringNode {
+public class StrNode {
     String data;
-    stringNode next;
-    stringNode prev;
+    StrNode next;
+    StrNode prev;
 
-    public stringNode(String d) {
+    public StrNode(String d) {
         this.data = d;
     }
 

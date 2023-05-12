@@ -1,6 +1,6 @@
 // circular doubly linked list
 public class DoublyCircularLinkedList {
-    stringNode head;
+    StrNode head;
     int size = 0;
 
     // check if empty
@@ -9,11 +9,11 @@ public class DoublyCircularLinkedList {
     }
 
     // returns node at specific position
-    public stringNode getNode(int pos) throws Exception {
+    public StrNode getNode(int pos) throws Exception {
         // validation
         if (pos > size || pos < 0) throw new Exception("Invalid position.");
 
-        stringNode temp = head;
+        StrNode temp = head;
         for (int i = 0; i < pos; i++) {
             temp = temp.next;
         }
@@ -22,7 +22,7 @@ public class DoublyCircularLinkedList {
 
     // appends to the end of list
     public void append(String d) {
-        stringNode node = new stringNode(d);
+        StrNode node = new StrNode(d);
         if (isEmpty()) {
             head = node;
             loop();
@@ -38,7 +38,7 @@ public class DoublyCircularLinkedList {
 
     // insert node at any position
     public void insert(String d, int pos) throws Exception{
-        stringNode newNode = new stringNode(d);
+        StrNode newNode = new StrNode(d);
 
         // validation
         if (pos > size || pos < 0) throw new Exception("Invalid position.");
@@ -60,7 +60,7 @@ public class DoublyCircularLinkedList {
                 return;
             }
 
-            stringNode temp = getNode(pos).prev;
+            StrNode temp = getNode(pos).prev;
             newNode.prev = temp;
             newNode.next = temp.next;
             if (temp.next != null) temp.next.prev = newNode;
@@ -75,7 +75,7 @@ public class DoublyCircularLinkedList {
     public String remove(int pos) throws Exception {
         if (pos > size || pos < 0) throw new Exception("Invalid position.");
         if (!isEmpty()) {
-            stringNode temp = getNode(pos);
+            StrNode temp = getNode(pos);
             String data = temp.data;
             temp.prev.next = temp.next;
             temp.next.prev = temp.prev;
@@ -94,7 +94,7 @@ public class DoublyCircularLinkedList {
 
     // creates circular linked list
     private void loop() {
-        stringNode temp = head;
+        StrNode temp = head;
         for (int i = 0; i < size - 1; i++) {
             temp = temp.next;
         }
@@ -106,7 +106,7 @@ public class DoublyCircularLinkedList {
     // print entire list
     public void printList() {
         if (!isEmpty()) {
-            stringNode temp = head;
+            StrNode temp = head;
             System.out.print("Head -> ");
             for (int i = 0; i < size; i++) {
                 System.out.print(" <- " + temp + " -> ");
@@ -121,7 +121,7 @@ public class DoublyCircularLinkedList {
     // custom print method for Playlist.java
     public void printSongs() {
         if (!isEmpty()) {
-            stringNode temp = head;
+            StrNode temp = head;
             for (int i = 0; i < size; i++) {
                 System.out.println(i + ": " + temp.data);
                 temp = temp.next;

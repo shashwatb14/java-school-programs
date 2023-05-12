@@ -6,7 +6,7 @@ public class Playlist {
 
     public static void main(String[] args) {
         int num;
-        stringNode current = playlist.head;
+        StrNode current = playlist.head;
         do {
             Scanner scanner = new Scanner(System.in);
             System.out.println("\nCurrent playlist: ");
