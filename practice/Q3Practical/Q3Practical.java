@@ -8,7 +8,7 @@
 
 import java.util.*;
 
-@SuppressWarnings("WrongPackageStatement")
+@SuppressWarnings("ALL")
 public class Q3Practical
 {	
 	public static int max(int[] a)
