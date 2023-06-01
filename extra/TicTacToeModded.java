@@ -16,7 +16,6 @@ public class TicTacToeModded {
         int num, cell;
         do {
             int size = board.length;
-
             do {
                 System.out.printf("Enter the row number (0 - %d): ", size - 1);
                 Scanner in = new Scanner(System.in);
@@ -73,7 +72,6 @@ public class TicTacToeModded {
                 if (cell == ' ') return false;
             }
         }
-
         return true;
     }
 
@@ -89,25 +87,22 @@ public class TicTacToeModded {
             if (board[i][i] != player) down = false;
             if (board[size - i - 1][i] != player) up = false;
         }
-
         if (down || up) return true;
 
         for (int i = 0; i < size; i++) {
 
             boolean row = true, col = true;
 
-
             for (int j = 0; j < size; j++) {
                 if (board[i][j] != player) row = false;
                 if (board[j][i] != player) col = false;
             }
-
             if (row || col) return true;
         }
-
         return false;
     }
 
+    // play and return true if game over
     public static boolean play(char[][] board, char player) {
         System.out.printf("\nPlayer '%c' turn\n", player);
         int[] pos = getPos(board);
@@ -123,7 +118,6 @@ public class TicTacToeModded {
             System.out.println("Tie game!");
             return true;
         }
-
         return false;
     }
 
@@ -137,7 +131,6 @@ public class TicTacToeModded {
                 board[i][j] = ' ';
             }
         }
-
         printBoard(board);
 
         while(!isFull(board)) {
