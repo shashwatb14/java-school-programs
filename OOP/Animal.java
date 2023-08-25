@@ -42,7 +42,7 @@ public class Animal {
     }
 
     public void talk() {
-        System.out.println(this.getName() + "doesn't talk!");
+        System.out.println(this.name + "doesn't talk!");
     }
 
     public void eat() {
