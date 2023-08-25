@@ -42,11 +42,11 @@ public class Animal {
     }
 
     public void talk() {
-        System.out.println(this.name + "doesn't talk!");
+        System.out.println(this.name + " doesn't talk!");
     }
 
     public void eat() {
-        System.out.println(this.name + "eats food.");
+        System.out.println(this.name + " eats food.");
     }
 
     public String toString() {
