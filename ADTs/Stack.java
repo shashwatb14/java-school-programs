@@ -1,7 +1,7 @@
 public class Stack {
     Node top;
 
-    public boolean isEmpty () {
+    public boolean isEmpty() {
         return top == null;
     }
 
