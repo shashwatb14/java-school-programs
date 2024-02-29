@@ -134,9 +134,7 @@ public class NamesListManager
 	{
 		// this method will add data (a String) at the end of the array (the first free index)
 		if( !isFull(a) )
-		{	/*a[lastIndex] = data;
-			lastIndex++;*/
-
+		{
 			insert(a, data);
 			lastIndex++;
 
