@@ -144,7 +144,7 @@ public class Q3Practical
 	 * Because they are already inside our clas, there is no need to prefix IBIO.*
 	 * before the name of the method.											 *
 	 ****************************************************************************/
-	 
+	
 	static void output (String info)
 	{	System.out.println(info);	}
 	
