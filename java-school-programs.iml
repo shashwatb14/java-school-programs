@@ -10,6 +10,13 @@
       <sourceFolder url="file://$MODULE_DIR$/practice" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/assignments" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/OOP" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/practicals" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ADTs/BST" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/OOP/Computer" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/OOP/Zoologico" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson/BST_OOP" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/practicals/Bank" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/practice/Q3Practical" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
