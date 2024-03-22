@@ -49,7 +49,7 @@ public class Train
     {	
 		/*if( this.getNumberOfWagons() > 0 )
         {   mWagonCount--;
-			return mWagons[mWagonCount + 1];
+			return mWagons[mWagonCount];
 		}
 		return null;*/
 
