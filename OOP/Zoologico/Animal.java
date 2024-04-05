@@ -32,7 +32,7 @@ public class Animal {
         return currentYear - birthYear;
     }
 
-    // modifier methods (setters)
+    // mutator/modifier methods (setters)
     public void setName(String name) {
         this.name = name;
     }
