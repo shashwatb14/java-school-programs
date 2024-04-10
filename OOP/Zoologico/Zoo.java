@@ -80,8 +80,8 @@ public class Zoo {
                 "\nAddress: " + this.address +
                 "\nPopulation" + this.population +
                 "\nAnimals:\n";
-        for (Animal animal : this.animals) {
-            output += "\t" + animal.toString() + "\n";
+        for (int i = 0; i < this.population; i++) {
+            output += "\t" + this.animals[i].toString() + "\n";
         }
 
         return output;
