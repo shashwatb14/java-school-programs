@@ -16,8 +16,12 @@ public class Server extends Computer {
         this.clients = clients;
     }
 
-    @Override
+    // example
     public double calculateVirtualMemory() {
-        return 0;
+        return (this.getPrimaryMemory() * 3) + (this.clients * 0.5);
+    }
+
+    public String toString() {
+        return super.toString() + "\nClients" + this.clients;
     }
 }

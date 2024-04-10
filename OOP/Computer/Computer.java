@@ -1,6 +1,7 @@
 // abstract class cannot be used to create objects
 public abstract class Computer {
     private String name;
+    private String cpu;
 
     // in GB
     private int primaryMemory;
@@ -9,6 +10,15 @@ public abstract class Computer {
     // constructor
     public Computer(String name, int primaryMemory, int secondaryMemory) {
         this.name = name;
+        this.cpu = "";
+        this.primaryMemory = primaryMemory;
+        this.secondaryMemory = secondaryMemory;
+    }
+
+    // overloaded constructor
+    public Computer(String name, String cpu, int primaryMemory, int secondaryMemory) {
+        this.name = name;
+        this.cpu = cpu;
         this.primaryMemory = primaryMemory;
         this.secondaryMemory = secondaryMemory;
     }
@@ -26,6 +36,10 @@ public abstract class Computer {
         return this.secondaryMemory;
     }
 
+    public String getCPU() {
+        return this.cpu;
+    }
+
     // setters
     public void setName(String name) {
         this.name = name;
@@ -39,10 +53,14 @@ public abstract class Computer {
         this.secondaryMemory = secondaryMemory;
     }
 
+    public void setCPU(String cpu) {
+        this.cpu = cpu;
+    }
+
     // no method body
     public abstract double calculateVirtualMemory();
 
     public String toString() {
-        return "Computer: " + this.name + "\nRAM: " + this.primaryMemory + " GB" + "\nSSD: " + this.secondaryMemory + " GB";
+        return "Computer: " + this.name + "\nProcessor" + this.cpu + "\nRAM: " + this.primaryMemory + " GB" + "\nSSD: " + this.secondaryMemory + " GB";
     }
 }
